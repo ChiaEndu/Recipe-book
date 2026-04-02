@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Recipe } from "../services/api";
+import type { Recipe } from "../services/api";
 
 type Props = {
   recipe: Recipe;
