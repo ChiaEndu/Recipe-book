@@ -40,6 +40,8 @@ export default function RecipeDetail() {
           src={recipe.strMealThumb}
           alt={recipe.strMeal}
           className="w-full h-full object-cover"
+          width={400}
+          height={300}
         />
       </div>
 
