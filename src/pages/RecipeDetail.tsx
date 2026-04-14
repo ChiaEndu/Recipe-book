@@ -20,6 +20,11 @@ export default function RecipeDetail() {
     if (item) ingredients.push(item);
   }
 
+  const preparationSteps = recipe.strInstructions
+    ?.split(/\r?\n/)
+    .map((step) => step.trim())
+    .filter(Boolean) ?? [];
+
   return (
     <div className="bg-[#f8f6f2] min-h-screen">
     
@@ -70,9 +75,15 @@ export default function RecipeDetail() {
 
           <div>
             <h3 className="font-semibold mb-4">Preparation Steps</h3>
-            <p className="text-gray-700 leading-relaxed">
-              {recipe.strInstructions}
-            </p>
+            <div className="space-y-3 text-gray-700 leading-relaxed">
+              {preparationSteps.length > 0 ? (
+                preparationSteps.map((step, index) => (
+                  <p key={index}>{step}</p>
+                ))
+              ) : (
+                <p>No preparation steps available.</p>
+              )}
+            </div>
           </div>
         </div>
       </div>
